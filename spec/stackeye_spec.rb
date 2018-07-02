@@ -1,9 +1,4 @@
-RSpec.describe Stackeye do
-  it "has a version number" do
-    expect(Stackeye::VERSION).not_to be nil
-  end
+# frozen_string_literal: true
 
-  it "does something useful" do
-    expect(false).to eq(true)
-  end
+RSpec.describe Stackeye do
 end

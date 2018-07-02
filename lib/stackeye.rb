@@ -1,5 +1,4 @@
-require "stackeye/version"
+# frozen_string_literal: true
 
-module Stackeye
-  # Your code goes here...
-end
+require 'stackeye/version'
+require 'stackeye/application'
