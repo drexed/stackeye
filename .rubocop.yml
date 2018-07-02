@@ -4,5 +4,9 @@ Layout/EmptyLinesAroundClassBody:
   Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
+Style/Dir:
+  Enabled: false
 Style/Documentation:
+  Enabled: false
+Style/ExpandPathArguments:
   Enabled: false
