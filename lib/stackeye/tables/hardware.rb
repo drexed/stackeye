@@ -6,7 +6,7 @@ module Stackeye
 
       set_table_name 'hardware'
 
-      columns :cpu_1m, :cpu_5m, :cpu_15m
+      columns :cpu_1m, :cpu_5m, :cpu_15m, :fakeer
 
     end
   end
