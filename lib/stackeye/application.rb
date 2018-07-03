@@ -2,26 +2,11 @@
 
 require 'sinatra/base'
 
-require 'active_hash'
 
-class Country < ActiveJSON::Base
-  # set_root_path File.expand_path(File.dirname(__FILE__) + '/../../data')
-
-  fields :name#, default: 'nan'
+5.times do |i|
+  Stackeye::Services::Hardware.privi
 end
 
-5.times do
-  Country.add(name: 'fake')
-  # c.save
-
-  # Stackeye::Tables::Hardware.create(cpu_1m: "#{rand(0..999)}@email.com")
-end
-
-# Country.all.each do |country|
-#   country.save
-# end
-
-puts Country.all.inspect
 
 # Stackeye::Database.truncate
 

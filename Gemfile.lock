@@ -2,7 +2,6 @@ PATH
   remote: .
   specs:
     stackeye (0.1.0)
-      file_db
       rufus-scheduler
       sinatra
 
@@ -28,7 +27,6 @@ GEM
     fasterer (0.4.1)
       colorize (~> 0.7)
       ruby_parser (~> 3.11.0)
-    file_db (1.2.1)
     fugit (1.1.3)
       et-orbi (~> 1.1, >= 1.1.1)
       raabro (~> 1.1)
