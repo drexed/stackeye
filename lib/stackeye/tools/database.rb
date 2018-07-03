@@ -6,7 +6,7 @@ module Stackeye
   module Tools
     class Database
 
-      DATA_PATH ||= '/var/www'# File.expand_path('data').freeze
+      DATA_PATH ||= '/var/www/hacklines/shared/log' # File.expand_path('data').freeze
       DATA_ROWS ||= 43_200
 
       def initialize(filepath)

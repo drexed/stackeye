@@ -2,12 +2,12 @@
 
 require 'stackeye/version'
 
-# %w[os cli schedule database].each do |filename|
-#   require "stackeye/tools/#{filename}"
-# end
+%w[os cli schedule database].each do |filename|
+  require "stackeye/tools/#{filename}"
+end
 
-# %w[base hardware].each do |filename|
-#   require "stackeye/services/#{filename}"
-# end
+%w[base hardware].each do |filename|
+  require "stackeye/services/#{filename}"
+end
 
 require 'stackeye/application'
