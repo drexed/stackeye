@@ -6,14 +6,25 @@ module Stackeye
   module Tools
     class Schedule
 
-      def self.every(interval, &block)
-        scheduler = Rufus::Scheduler.new
-        scheduler.every(interval) { block.call }
+      TYPES ||= %i[cron every].freeze
+
+      def initialize
+        @scheduler = Rufus::Scheduler.new
       end
 
-      def self.cron(interval, &block)
-        scheduler = Rufus::Scheduler.new
-        scheduler.cron(interval) { block.call }
+      TYPES.each do |name|
+        define_method(name) do |interval, &block|
+          @scheduler.cron(interval) { block.call }
+        end
+      end
+
+      class << self
+        TYPES.each do |name|
+          define_method(name) do
+            klass = new
+            klass.send(name)
+          end
+        end
       end
 
     end

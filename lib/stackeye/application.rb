@@ -3,9 +3,7 @@
 require 'sinatra/base'
 
 
-5.times do |i|
-  Stackeye::Services::Hardware.set
-end
+Stackeye::Services::Hardware.set
 
 # TODO: change to .cron('0 0 * * *')
 # Stackeye::Schedule.every('1s') do

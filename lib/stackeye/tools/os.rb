@@ -19,24 +19,24 @@ module Stackeye
         @config = RbConfig::CONFIG['host_os']
       end
 
-      def posix?
-        linux? || mac? || freebsd? || bsd? || solaris? || Process.respond_to?(:fork)
+      def platform
+        HOST_OS.keys.detect { |name| send("#{name}?") }
       end
 
       HOST_OS.each do |name, regex|
         define_method("#{name}?") do
-          @config === regex
+          @config =~ regex
         end
       end
 
       class << self
-        def posix?
+        def platform
           klass = new
-          klass.posix?
+          klass.platform
         end
 
         HOST_OS.each do |name, _regex|
-          define_method(name) do |filepath|
+          define_method(name) do
             klass = new
             klass.send(name)
           end

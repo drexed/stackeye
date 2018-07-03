@@ -35,6 +35,18 @@ module Stackeye
         end
       end
 
+      private
+
+      def execute(name, cmds)
+        puts Stackeye::Tools::Os.platform.inspect
+        puts cmds[Stackeye::Tools::Os.platform].strip.inspect
+
+        result = %x[ #{cmds[Stackeye::Tools::Os.platform]} ]
+        return 0.0 if result.nil?
+
+        @data[name] = result.to_f
+      end
+
     end
   end
 end
