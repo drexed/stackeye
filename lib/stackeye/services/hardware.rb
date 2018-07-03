@@ -3,19 +3,26 @@
 module Stackeye
   module Services
     class Hardware < Stackeye::Services::Base
-      class << self
 
-        def data
-          { sup: 'dude' }
-        end
 
-        private
+      def generate_data
+        @data[:test] = 'sample'
+      end
 
-        def privi
+      private
 
-        end
+      def cpu_data
+        {}
+      end
+
+      def mem_data
 
       end
+
+      def hdd_data
+
+      end
+
     end
   end
 end

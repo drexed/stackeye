@@ -4,7 +4,7 @@ require 'sinatra/base'
 
 
 5.times do |i|
-  Stackeye::Services::Hardware.privi
+  Stackeye::Services::Hardware.set
 end
 
 
