@@ -6,8 +6,8 @@ module Stackeye
   module Tools
     class Cli
 
-      def initialize(commands)
-        @command = commands[Stackeye::Tools::Os.platform]
+      def initialize(command)
+        @command = command
       end
 
       def execute
@@ -16,8 +16,8 @@ module Stackeye
       end
 
       class << self
-        def execute(commands)
-          klass = new(commands)
+        def execute(command)
+          klass = new(command)
           klass.execute
         end
       end

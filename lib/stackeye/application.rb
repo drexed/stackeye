@@ -13,7 +13,8 @@ Stackeye::Services::Hardware.set
 class Stackeye::Application < Sinatra::Base
 
   get '/' do
-    erb(:index, locals: { clients: 'something' })
+    data = Stackeye::Services::Hardware.get
+    erb(:index, locals: { data: data })
   end
 
 end
