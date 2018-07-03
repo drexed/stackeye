@@ -15,6 +15,8 @@ module Stackeye
 
       def get
         json = []
+        return json unless File.file?(@filepath)
+
         File.foreach(@filepath) do |line|
           json << JSON.parse(line)
         end
@@ -22,7 +24,7 @@ module Stackeye
       end
 
       def set(hash)
-        File.open(@filepath, 'a') do |outfile|
+        File.open(@filepath, 'a+') do |outfile|
           outfile.puts JSON.generate(hash)
         end
       end
