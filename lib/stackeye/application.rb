@@ -7,12 +7,9 @@ require 'sinatra/base'
   Stackeye::Services::Hardware.set
 end
 
-
-# Stackeye::Database.truncate
-
 # TODO: change to .cron('0 0 * * *')
 # Stackeye::Schedule.every('1s') do
-#   Stackeye::Database.truncate
+#   Stackeye::Tools::Database.truncate
 # end
 
 class Stackeye::Application < Sinatra::Base

@@ -9,21 +9,21 @@ module Stackeye
       end
 
       def filepath
-        path = Stackeye::Database::DATA_PATH
+        path = Stackeye::Tools::Database::DATA_PATH
         name = self.class.name.split('::').last.downcase
 
         "#{path}/#{name}.json"
       end
 
       def get
-        Stackeye::Database.get(filepath)
+        Stackeye::Tools::Database.get(filepath)
       end
 
       def set
         generate_data
         return if @data.empty?
 
-        Stackeye::Database.set(filepath, @data)
+        Stackeye::Tools::Database.set(filepath, @data)
       end
 
       class << self

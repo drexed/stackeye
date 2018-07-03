@@ -1,10 +1,13 @@
 # frozen_string_literal: true
 
 require 'stackeye/version'
-require 'stackeye/schedule'
-require 'stackeye/database'
 
-require 'stackeye/services/base'
-require 'stackeye/services/hardware'
+%w[shcedule tools].each do |filename|
+  require "stackeye/tools/#{filename}"
+end
+
+%w[base hardware].each do |filename|
+  require "stackeye/services/#{filename}"
+end
 
 require 'stackeye/application'
