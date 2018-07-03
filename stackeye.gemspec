@@ -22,6 +22,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ['lib']
   # rubocop:enable Metrics/LineLength
 
+  spec.add_runtime_dependency 'file_db'
   spec.add_runtime_dependency 'rufus-scheduler'
   spec.add_runtime_dependency 'sinatra'
 
