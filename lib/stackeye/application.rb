@@ -13,6 +13,7 @@ require 'sinatra/base'
 class Stackeye::Application < Sinatra::Base
 
   get '/' do
+    Stackeye::Services::Hardware.set
     data = Stackeye::Services::Hardware.get
     erb(:index, locals: { data: data })
   end
