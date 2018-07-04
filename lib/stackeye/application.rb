@@ -10,9 +10,11 @@ require 'sinatra/base'
 class Stackeye::Application < Sinatra::Base
 
   get '/' do
-    Stackeye::Services::Hardware.set
-    data = Stackeye::Services::Hardware.get
-    erb(:index, locals: { data: data })
+    # Stackeye::Services::Hardware.set
+    # data = Stackeye::Services::Hardware.get
+
+    # TODO: render unsupported if non linux page
+    erb(:index, locals: { data: [1,2,3] })
   end
 
 end

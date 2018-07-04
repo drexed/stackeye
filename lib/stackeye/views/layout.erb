@@ -1,15 +1,26 @@
 <!doctype html>
 <html lang="en">
   <head>
+    <!-- Metatags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Transactions</title>
+    <title>Stackeye</title>
 
-    <link rel="stylesheet" href="/application.css">
+    <!-- Javascripts -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="/javascripts/application.js"></script>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Raleway:300,400,600">
+    <link rel="stylesheet" href="/stylesheets/normalize.css">
+    <link rel="stylesheet" href="/stylesheets/skeleton.css">
+    <link rel="stylesheet" href="/stylesheets/application.css">
   </head>
   <body>
-    <%= yield %>
-
-    <script src="/application.js"></script>
+    <%= erb(:"shared/navbar") %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= erb(:"shared/footer") %>
   </body>
 </html>

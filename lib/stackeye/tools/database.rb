@@ -6,6 +6,7 @@ module Stackeye
   module Tools
     class Database
 
+      # TODO: make it from the config folder
       DATA_PATH ||= '/var/metrics' # File.expand_path('data')
       DATA_ROWS ||= 43_200
 
@@ -24,6 +25,8 @@ module Stackeye
       end
 
       def set(hash)
+        # TODO: add make dir if it doesn't exists
+
         File.open(@filepath, 'a+') do |outfile|
           outfile.puts JSON.generate(hash)
         end
@@ -33,6 +36,7 @@ module Stackeye
         Dir.foreach(@filepath) do |filename|
           next if filename.start_with?('.')
 
+          # TODO: see if the following works
           # file = File.expand_path("data/#{filename}")
 
           file = "#{DATA_PATH}/#{filename}"
@@ -40,6 +44,7 @@ module Stackeye
           next if temp.nil? || temp.length == DATA_ROWS
 
           File.open(file, 'w') do |outfile|
+            # TODO: see if we even need to truncate the file
             outfile.truncate(0)
             temp.each { |line| outfile.puts line }
           end
