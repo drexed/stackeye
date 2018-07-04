@@ -6,7 +6,7 @@ module Stackeye
   module Tools
     class Database
 
-      DATA_PATH ||= '/var/metrics'
+      DATA_PATH ||= '/var/metrics' # File.expand_path('data')
       DATA_ROWS ||= 43_200
 
       def initialize(filepath)
