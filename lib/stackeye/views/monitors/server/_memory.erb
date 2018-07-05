@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h4 class="card-header-title">
+          Memory
+        </h4>
+      </div>
+      <div class="col-auto">
+        <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
+          <li class="nav-item" data-toggle="chart" data-target="memoryChart" data-data="[0,10,5,15,10,20,15,25,20,30,25,40]">
+            <a class="nav-link active" href="#" data-toggle="tab">
+              Free
+            </a>
+          </li>
+          <li class="nav-item" data-toggle="chart" data-target="memoryChart" data-data="[7,35,12,27,34,17,19,30,28,32,24,39]">
+            <a class="nav-link" href="#" data-toggle="tab">
+              Swap
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <div class="chart">
+      <canvas id="memoryChart" class="chart-canvas chartjs-render-monitor" width="1816" height="600" style="display: block; height: 300px; width: 908px;"></canvas>
+    </div>
+  </div>
+  <div class="card-footer">
+    Mode Avg Range
+  </div>
+</div>

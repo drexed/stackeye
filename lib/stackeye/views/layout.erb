@@ -14,11 +14,14 @@
     <!-- Components -->
     <%= erb(:"shared/navbar") %>
     <div class="main-content">
-      <%= yield %>
+      <div class="container-fluid">
+        <%= yield %>
+      </div>
     </div>
 
     <!-- Javascripts -->
     <script src="/javascripts/jquery.js"></script>
+    <script src="/javascripts/moment.js"></script>
     <script src="/javascripts/popper.js"></script>
     <script src="/javascripts/bootstrap.js"></script>
     <script src="/javascripts/chart.js"></script>
