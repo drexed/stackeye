@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Stackeye
-  module Services
+  module Monitors
     class Base
 
       def initialize

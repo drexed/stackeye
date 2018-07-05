@@ -4,6 +4,7 @@ require 'sinatra/base'
 
 # TODO: change to .cron('0 0 * * *')
 # Stackeye::Schedule.every('1s') do
+#   Stackeye::Services::Hardware.set
 #   Stackeye::Tools::Database.truncate
 # end
 
@@ -18,7 +19,7 @@ class Stackeye::Application < Sinatra::Base
     # Stackeye::Services::Hardware.set
     # data = Stackeye::Services::Hardware.get
 
-    erb(:"monitors/server", locals: { data: [1,2,3] })
+    erb(:"monitors/server/index", locals: { data: [1,2,3] })
   end
 
 end

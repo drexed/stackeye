@@ -7,7 +7,7 @@ require 'stackeye/version'
 end
 
 %w[base hardware].each do |filename|
-  require "stackeye/services/#{filename}"
+  require "stackeye/monitors/#{filename}"
 end
 
 require 'stackeye/application'

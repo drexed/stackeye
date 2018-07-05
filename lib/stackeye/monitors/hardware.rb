@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 module Stackeye
-  module Services
-    class Hardware < Stackeye::Services::Base
+  module Monitors
+    class Hardware < Stackeye::Monitors::Base
 
       def generate_data
         generate_cpu_loadavg

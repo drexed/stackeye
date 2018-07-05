@@ -7,7 +7,7 @@ module Stackeye
     class Database
 
       # TODO: make it from the config folder
-      DATA_PATH ||= '/var/metrics' # File.expand_path('data')
+      DATA_PATH ||= '/var/stackeye' # File.expand_path('data')
       DATA_ROWS ||= 43_200
 
       def initialize(filepath)
@@ -26,6 +26,7 @@ module Stackeye
 
       def set(hash)
         # TODO: add make dir if it doesn't exists
+        # TODO: remove last line if over limit
 
         File.open(@filepath, 'a+') do |outfile|
           outfile.puts JSON.generate(hash)
