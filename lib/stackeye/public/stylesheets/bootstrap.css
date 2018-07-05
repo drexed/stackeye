@@ -1,9 +1,4 @@
-/*!
- * Bootstrap v4.1.1 (https://getbootstrap.com/)
- * Copyright 2011-2018 The Bootstrap Authors
- * Copyright 2011-2018 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
+@import url('https://fonts.googleapis.com/css?family=Rubik:300,400,500,700');
 
 :root {
 	--blue: #2c7be5;
@@ -33,7 +28,7 @@
 	--breakpoint-md: 768px;
 	--breakpoint-lg: 992px;
 	--breakpoint-xl: 1200px;
-	--font-family-sans-serif: "Cerebri Sans", sans-serif;
+	--font-family-sans-serif: "Rubik", sans-serif;
 	--font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace
 }
 *,
@@ -65,7 +60,7 @@ section {
 	display: block
 }
 body {
-	font-family: Cerebri Sans, sans-serif;
+	font-family: "Rubik", sans-serif;
 	font-size: .9375rem;
 	font-weight: 400;
 	line-height: 1.5;
@@ -125,7 +120,7 @@ ul ul {
 	margin-bottom: 0
 }
 dt {
-	font-weight: 600
+	font-weight: 700
 }
 dd {
 	margin-bottom: .5rem;
@@ -369,7 +364,7 @@ h6 {
 }
 .display-1,
 .display-2 {
-	font-weight: 600;
+	font-weight: 700;
 	line-height: 1.1
 }
 .display-2 {
@@ -380,7 +375,7 @@ h6 {
 }
 .display-3,
 .display-4 {
-	font-weight: 600;
+	font-weight: 700;
 	line-height: 1.1
 }
 .display-4 {
@@ -468,7 +463,7 @@ kbd {
 }
 kbd kbd {
 	font-size: 100%;
-	font-weight: 600;
+	font-weight: 700;
 	padding: 0
 }
 pre {
@@ -4605,7 +4600,7 @@ input[type=submit].btn-block {
 }
 .close {
 	font-size: 1.40625rem;
-	font-weight: 600;
+	font-weight: 700;
 	line-height: 1;
 	float: right;
 	opacity: .5;
@@ -4755,7 +4750,7 @@ button.close {
 	}
 }
 .tooltip {
-	font-family: Cerebri Sans, sans-serif;
+	font-family: "Rubik", sans-serif;
 	font-size: .8125rem;
 	font-weight: 400;
 	font-style: normal;
@@ -4861,7 +4856,7 @@ button.close {
 	background-color: #e3ebf6
 }
 .popover {
-	font-family: Cerebri Sans, sans-serif;
+	font-family: "Rubik", sans-serif;
 	font-size: .8125rem;
 	font-weight: 400;
 	font-style: normal;
@@ -8968,7 +8963,7 @@ button.bg-body:hover {
 	font-weight: 400 !important
 }
 .font-weight-bold {
-	font-weight: 600 !important
+	font-weight: 700 !important
 }
 .font-italic {
 	font-style: italic !important
@@ -10744,7 +10739,7 @@ body {
 	vertical-align: middle
 }
 .table thead th {
-	font-weight: 600;
+	font-weight: 700;
 	letter-spacing: .08em;
 	text-transform: uppercase;
 	color: #95aac9;
@@ -10818,29 +10813,11 @@ h6.text-uppercase {
 }
 b,
 strong {
-	font-weight: 600
+	font-weight: 700
 }
 a:focus,
 button:focus {
 	outline: none !important
-}
-@font-face {
-	font-family: Cerebri Sans;
-	font-weight: 400;
-	font-style: normal;
-	src: url(../fonts/cerebrisans-regular.woff) format("woff");
-}
-@font-face {
-	font-family: Cerebri Sans;
-	font-weight: 500;
-	font-style: normal;
-	src: url(../fonts/cerebrisans-medium.woff) format("woff");
-}
-@font-face {
-	font-family: Cerebri Sans;
-	font-weight: 600;
-	font-style: normal;
-	src: url(../fonts/cerebrisans-semibold.woff) format("woff");
 }
 .bg-fixed-bottom {
 	background-repeat: no-repeat;
