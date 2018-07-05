@@ -1,0 +1,50 @@
+<div class="header bg-dark pb-5">
+  <div class="container-fluid">
+    <div class="header-body">
+      <div class="row align-items-end">
+        <div class="col">
+          <h6 class="header-pretitle text-secondary">
+            Server
+          </h6>
+          <h1 class="header-title text-white">
+            CPU Usage
+          </h1>
+        </div>
+        <div class="col-auto">
+          <ul class="nav nav-tabs header-tabs">
+            <li class="nav-item" data-toggle="chart" data-target="headerChart" data-update="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[0,10,5,15,10,20,15,25,20,30,25,40]}]}}" data-prefix="$" data-suffix="k">
+              <a href="#" class="nav-link text-center active" data-toggle="tab">
+                <h6 class="header-pretitle text-secondary">
+                  Loadavg
+                </h6>
+                <h3 class="text-white mb-0">
+                  1min
+                </h3>
+              </a>
+            </li>
+            <li class="nav-item" data-toggle="chart" data-target="headerChart" data-update="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[23,40,12,3,43,27,35,65,34,23,12,30]}]}}" data-prefix="" data-suffix="k">
+              <a href="#" class="nav-link text-center" data-toggle="tab">
+                <h6 class="header-pretitle text-secondary">
+                  Utilization
+                </h6>
+                <h3 class="text-white mb-0">
+                  1min
+                </h3>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="header-footer">
+      <div class="chart">
+        <canvas id="headerChart"
+                class="chart-canvas chartjs-render-monitor"
+                width="1916"
+                height="600"
+                style="display: block; height: 300px; width: 958px;">
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>
