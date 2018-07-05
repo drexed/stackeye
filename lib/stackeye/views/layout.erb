@@ -12,9 +12,10 @@
   </head>
   <body>
     <!-- Components -->
-    <%# erb(:"shared/navbar") %>
+    <%= erb(:"shared/navbar") %>
+    <div class="main-content">
       <%= yield %>
-    <%# erb(:"shared/footer") %>
+    </div>
 
     <!-- Javascripts -->
     <script src="/javascripts/jquery.js"></script>

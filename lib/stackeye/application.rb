@@ -8,13 +8,17 @@ require 'sinatra/base'
 # end
 
 class Stackeye::Application < Sinatra::Base
+  # TODO: render unsupported if non linux page
 
   get '/' do
+    erb(:index, locals: { data: [1,2,3] })
+  end
+
+  get '/server' do
     # Stackeye::Services::Hardware.set
     # data = Stackeye::Services::Hardware.get
 
-    # TODO: render unsupported if non linux page
-    erb(:index, locals: { data: [1,2,3] })
+    erb(:"monitors/server", locals: { data: [1,2,3] })
   end
 
 end

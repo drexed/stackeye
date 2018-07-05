@@ -1,82 +1,78 @@
-<nav class="navbar">
-  <div class="container row">
+<nav class="navbar navbar-vertical fixed-left navbar-expand-md navbar-light bg-white">
+  <div class="container-fluid">
+
+    <!-- Toggler -->
+    <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Brand -->
     <a class="navbar-brand" href="/">
-      <img src="/images/stackeye.svg" alt="Stackeye">
+      <img src="images/stackeye.png" class="navbar-brand-img mx-auto" alt="Stackeye">
     </a>
 
+    <!-- User (xs) -->
+    <div class="navbar-user d-md-none">
+      <a href="/" class="navbar-toggler">
+        <span class="fe fe-rotate-cw"></span>
+      </a>
+    </div>
 
+    <!-- Collapse -->
+    <div class="navbar-collapse collapse" id="sidebarCollapse" style="">
+      <!-- Heading -->
+      <hr class="my-3 d-none d-sm-block">
+      <h6 class="navbar-heading text-muted">
+        Monitors
+      </h6>
 
-    <ul class="navbar-list row">
-      <li class="navbar-item">
-        <a class="navbar-link" href="#" data-popover="#js-services-popover">
-          Services
-          <i class="dripicons-chevron-down"></i>
-        </a>
-        <div id="js-services-popover" class="popover">
-          <ul class="popover-list">
-            <li class="popover-item">
-              <a class="popover-link" href="#grid">Grid</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="#typography">Typography</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="#buttons">Buttons</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="#forms">Forms</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="#lists">Lists</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="#code">Code</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="#tables">Tables</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="#queries">Queries</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="#utilities">Utilities</a>
-            </li>
-          </ul>
-        </div>
-      </li>
+      <!-- Navigation -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html">
+            <i class="fe fe-server"></i> Server
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="fe fe-database"></i> MySQL
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">
+            <i class="fe fe-database"></i> Redis
+          </a>
+        </li>
+      </ul>
 
+      <!-- Heading -->
+      <hr class="my-3">
+      <h6 class="navbar-heading text-muted">
+        Documentation
+      </h6>
 
+      <!-- Navigation -->
+      <ul class="navbar-nav mb-md-3">
+        <li class="nav-item">
+          <a class="nav-link " href="getting-started.html">
+            <i class="fe fe-clipboard"></i> Getting started
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="changelog.html">
+            <i class="fe fe-git-branch"></i> Changelog <span class="badge badge-primary ml-auto">v1.0</span>
+          </a>
+        </li>
+      </ul>
 
+      <!-- Heading -->
+      <hr class="my-3">
+      <h6 class="navbar-heading text-muted text-center">
+        Built with
+        <i class="fe fe-heart text-danger"></i>
+        by Drexed
+      </h6>
+    </div>
 
-
-      <li class="navbar-item">
-        <a class="navbar-link" href="#" data-popover="#moreNavPopover">
-          More
-          <i class="dripicons-chevron-down"></i>
-        </a>
-        <div id="moreNavPopover" class="popover">
-          <ul class="popover-list">
-            <li class="popover-item">
-              <a class="popover-link" href="https://github.com/dhg/Skeleton">On Github</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="https://github.com/dhg/Skeleton#browser-support">Browsers</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="https://github.com/dhg/Skeleton#license">License</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="https://github.com/dhg/Skeleton#extensions">Extensions</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="https://github.com/dhg/Skeleton/releases">Versions</a>
-            </li>
-            <li class="popover-item">
-              <a class="popover-link" href="https://github.com/dhg/Skeleton#colophon">Colophon</a>
-            </li>
-          </ul>
-        </div>
-      </li>
-    </ul>
   </div>
 </nav>
