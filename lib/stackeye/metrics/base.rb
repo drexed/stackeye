@@ -43,7 +43,48 @@ module Stackeye
         @mean ||= {}
         return @mean[key] if @mean.key?(key)
 
-        @mean[key] = pluck(key).sum / pluck(key).length.to_f
+        values = pluck(key)
+        return @mean[key] = 0.0 if values.empty?
+
+        @mean[key] = values.sum / values.length.to_f
+      end
+
+      def median(key)
+        @median ||= {}
+        return @median[key] if @median.key?(key)
+
+        values = pluck(key)
+        return @median[key] = 0.0 if values.empty?
+
+        values_sorted = values.sort
+        values_halved = values.length / 2.0
+        values_halved_sorted = values_sorted[values_halved]
+        return @median[key] = values_halved_sorted unless (values.length % 2).zero?
+
+        @median[key] = (values_sorted[values_halved - 1.0] + values_halved_sorted) / 2.0
+      end
+
+      def mode(key)
+        @mode ||= {}
+        return @mode[key] if @mode.key?(key)
+
+        values = pluck(key)
+        return @mode[key] = 0.0 if values.empty?
+
+        values_distro = values.each_with_object(Hash.new(0)) { |val, hsh| hsh[val] += 1 }
+        values_top_two = values_distro.sort_by { |_, val| -val }.take(2)
+        @mode[key] = values_top_two.first.first
+      end
+
+      def range(key)
+        @range ||= {}
+        return @range[key] if @range.key?(key)
+
+        values = pluck(key)
+        return @range[key] = 0.0 if values.empty?
+
+        values_sorted = values.sort
+        @mode[key] = values_sorted.last - values_sorted.first
       end
 
       class << self
@@ -54,7 +95,7 @@ module Stackeye
           end
         end
 
-        %i[pluck mean].each do |name|
+        %i[pluck mean median mode range].each do |name|
           define_method(name) do |key|
             klass = new
             klass.send(name, key)
