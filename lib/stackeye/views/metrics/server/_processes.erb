@@ -1,0 +1,47 @@
+<div class="card">
+  <div class="card-header">
+    <div class="row align-items-center">
+      <div class="col">
+        <h4 class="card-header-title">
+          Top processes
+        </h4>
+      </div>
+      <div class="col-auto">
+        <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
+         <li class="nav-item">
+           <a href="#" class="nav-link active">
+             CPU
+           </a>
+         </li>
+         <li class="nav-item">
+           <a href="#" class="nav-link">
+             Memory
+           </a>
+         </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="table-responsive mb-0">
+    <table class="table table-sm table-nowrap card-table">
+      <thead>
+        <tr>
+          <% %w[USER UID COMMAND PID %CPU %MEM TTY].each do |header| %>
+            <th class="text-muted">
+              <%= header %>
+            </th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% 10.times do %>
+          <tr>
+            <% 7.times do %>
+              <td><%= rand(0..99) %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

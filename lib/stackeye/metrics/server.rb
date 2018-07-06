@@ -5,32 +5,12 @@ module Stackeye
     class Server < Stackeye::Metrics::Base
 
       def generate_data
-        %i[
-          cpu_load_1m
-          cpu_load_5m
-          cpu_load_15m
-          cpu_utilization
-          memory_free
-          memory_total
-          memory_used
-          swap_free
-          swap_used
-          swap_total
-          disk_free
-          disk_used
-          disk_total
-        ].each do |key|
-          @data[key] = rand(1..5)
-        end
-
-        t = Time.now
-        @data[:timestamp] = (t + 60 * rand(1..300)).to_i
-
-        # generate_cpu_loadavg
-        # generate_cpu_utilization
-        # generate_memory_utilization
-        # generate_swap_utilization
-        # generate_volume_utilization
+        generate_cpu_loadavg
+        generate_cpu_utilization
+        generate_memory_utilization
+        generate_process_utilization
+        generate_swap_utilization
+        generate_volume_utilization
       end
 
       private
@@ -43,8 +23,23 @@ module Stackeye
       end
 
       def generate_cpu_utilization
-        cmd = "ps -A -o %cpu | awk '{ s += $1 } END { print s }'"
+        cmd = "ps -Ao %cpu | awk '{ s += $1 } END { print s }'"
         @data[:cpu_utilization] = Stackeye::Tools::Cli.execute(cmd).strip.to_f
+      end
+
+      def generate_process_utilization
+        %i[pcpu pmem].each do |sort|
+          cmd = "ps -Ao user,uid,comm,pid,pcpu,pmem,tty --sort=-#{sort} | head -n 11"
+          processes = Stackeye::Tools::Cli.execute(cmd)
+          key = "#{sort}_processes".to_sym
+
+          @data[key] = []
+          processes.split("\n").each_with_index do |process, i|
+            next if i.zero?
+
+            @data[key] << process.strip.gsub(/\s+/, ' ').split(' ')
+          end
+        end
       end
 
       def generate_memory_utilization

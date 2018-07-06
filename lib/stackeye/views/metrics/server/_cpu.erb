@@ -37,19 +37,19 @@
               style="display: block; height: 300px; width: 908px;">
       </canvas>
     </div>
+    <div class="chart-legend">
+      <% { primary: "Metric", dark: "Average" }.each do |color, label| %>
+        <span class="chart-legend-item">
+          <i class="chart-legend-indicator bg-<%= color %>"></i>
+          <%= label %>
+        </span>
+      <% end %>
+    </div>
   </div>
-  <ul class="card-footer card-chart-footer">
-    <% { primary: "Metric", black: "Average" }.each do |color, label| %>
-      <li>
-        <span class="text-<%= color %>">●</span>
-        <%= label %>
-      </li>
-    <% end %>
-  </ul>
 </div>
 
 <% %w[cpu_load_1m cpu_utilization].each_with_index do |metric, i| %>
-  <div class="row <%= :hidden unless i.zero? %> card-contract-cpu" id="card_<%= metric %>">
+  <div class="row <%= 'd-none' unless i.zero? %> card-contract-cpu" id="card_<%= metric %>">
     <% %w[mean median mode range].each do |action| %>
       <div class="col-12 col-lg-6 col-xl">
         <div class="card">

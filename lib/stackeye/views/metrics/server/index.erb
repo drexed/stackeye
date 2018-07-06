@@ -1,3 +1,28 @@
-<%= erb(:"shared/header") %>
-<%= erb(:"metrics/server/_cpu") %>
-<%= erb(:"metrics/server/_memory") %>
+<div class="row">
+  <div class="col-12 col-xl-12">
+    <%= erb(:"shared/_header") %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-xl-12">
+    <%= erb(:"metrics/server/_cpu") %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-xl-12">
+    <%= erb(:"metrics/server/_memory") %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-xl-4">
+    <%= erb(:"metrics/server/_disk") %>
+  </div>
+  <div class="col-12 col-xl-8">
+    <%= erb(:"metrics/server/_processes") %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12 col-xl-12">
+    <%= erb(:"shared/_footer") %>
+  </div>
+</div>
