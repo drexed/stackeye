@@ -19,17 +19,17 @@ module Stackeye
         end
       end
 
-      def get
-        return @get if defined?(@get)
-
-        @get ||= Stackeye::Tools::Database.get(filepath)
-      end
-
       def set
         generate_data
         return if @data.empty?
 
         Stackeye::Tools::Database.set(filepath, @data)
+      end
+
+      def get
+        return @get if defined?(@get)
+
+        @get ||= Stackeye::Tools::Database.get(filepath)
       end
 
       def pluck(key)
@@ -39,16 +39,25 @@ module Stackeye
         @pluck[key] = get.collect { |hash| hash[key] }
       end
 
-      class << self
-        def pluck(key)
-          klass = new
-          klass.pluck(key)
-        end
+      def mean(key)
+        @mean ||= {}
+        return @mean[key] if @mean.key?(key)
 
-        %i[filepath get set].each do |name|
+        @mean[key] = pluck(key).sum / pluck(key).length.to_f
+      end
+
+      class << self
+        %i[filepath set get].each do |name|
           define_method(name) do
             klass = new
             klass.send(name)
+          end
+        end
+
+        %i[pluck mean].each do |name|
+          define_method(name) do |key|
+            klass = new
+            klass.send(name, key)
           end
         end
       end

@@ -8,12 +8,12 @@
       </div>
       <div class="col-auto">
         <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-          <li class="nav-item" data-toggle="chart" data-target="cpuChart" data-data="<%= @metrics.pluck('cpu_load_1m') %>">
+          <li class="nav-item" data-toggle="chart" data-target="cpuChart" data-metrics="<%= @metrics.pluck('cpu_load_1m') %>" data-mean="<%= @metrics.mean('cpu_load_1m') %>" data-timestamps="<%= @metrics.pluck('timestamp') %>">
             <a class="nav-link active" href="#" data-toggle="tab">
               1m loadavg
             </a>
           </li>
-          <li class="nav-item" data-toggle="chart" data-target="cpuChart" data-data="<%= @metrics.pluck('cpu_utilization') %>">
+          <li class="nav-item" data-toggle="chart" data-target="cpuChart" data-metrics="<%= @metrics.pluck('cpu_utilization') %>" data-mean="<%= @metrics.mean('cpu_load_1m') %>" data-timestamps="<%= @metrics.pluck('timestamp') %>">
             <a class="nav-link" href="#" data-toggle="tab">
               Utilization
             </a>
@@ -41,7 +41,7 @@
         <div class="row align-items-center">
           <div class="col">
             <h6 class="card-title text-uppercase text-muted mb-2">
-              CPU 1m Average
+              CPU 1m mean
             </h6>
             <span class="h2 mb-0">
               $24,500
