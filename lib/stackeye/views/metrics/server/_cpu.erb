@@ -9,11 +9,11 @@
       </div>
       <div class="col-auto">
         <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-          <% { cpu_load_1m: "Load 1m", cpu_utilization: "Utilization" }.each_with_index do |(metric, label), i| %>
+          <% { cpu_load_1m: "CPU Load 1m", cpu_utilization: "CPU Utilization" }.each_with_index do |(metric, label), i| %>
             <li class="nav-item"
                 data-toggle="chart"
                 data-type="time"
-                data-target="cpuChart"
+                data-target="cpu_chart"
                 data-metrics="<%= @metrics.pluck(metric.to_s) %>"
                 data-mean="<%= @metrics.mean(metric.to_s).round(1) %>"
                 data-timestamps="<%= @metrics.pluck('timestamp') %>"
@@ -30,7 +30,7 @@
   </div>
   <div class="card-body">
     <div class="chart">
-      <canvas id="cpuChart"
+      <canvas id="cpu_chart"
               class="chart-canvas chartjs-render-monitor"
               width="1816"
               height="600"
