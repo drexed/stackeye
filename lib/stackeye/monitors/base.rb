@@ -9,10 +9,12 @@ module Stackeye
       end
 
       def filepath
-        path = Stackeye::Tools::Database::DATA_PATH
-        name = self.class.name.split('::').last.downcase
+        @filepath ||= begin
+          path = Stackeye::Tools::Database::DATA_PATH
+          name = self.class.name.split('::').last.downcase
 
-        "#{path}/#{name}.json"
+          "#{path}/#{name}.json"
+        end
       end
 
       def get
