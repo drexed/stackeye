@@ -3,14 +3,15 @@
     <div class="row align-items-end">
       <div class="col">
         <h6 class="header-pretitle">
-          Monitors
+          Metrics
         </h6>
         <h1 class="header-title">
-          Server
+          <%= @title %>
         </h1>
       </div>
       <div class="col-auto">
-        <a href="#!" class="btn btn-primary">
+        <a href="/refresh" class="btn btn-<%= 'outline-' if cookies.key?(:refresh) %>primary">
+          <span class="fe fe-rotate-cw"></span>
           Auto-Refresh
         </a>
       </div>

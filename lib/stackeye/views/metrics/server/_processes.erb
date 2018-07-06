@@ -8,16 +8,15 @@
       </div>
       <div class="col-auto">
         <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-         <li class="nav-item">
-           <a href="#" class="nav-link active">
-             CPU
-           </a>
-         </li>
-         <li class="nav-item">
-           <a href="#" class="nav-link">
-             Memory
-           </a>
-         </li>
+          <% { cpu_processes: "CPU", memory_processes: "Memory" }.each_with_index do |(metric, label), i| %>
+            <li class="nav-item"
+                data-expand="#card_<%= metric %>"
+                data-contract=".card-contract-process">
+              <a class="nav-link <%= :active if i.zero? %>" href="#" data-toggle="tab">
+                <%= label %>
+              </a>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
@@ -33,15 +32,21 @@
           <% end %>
         </tr>
       </thead>
-      <tbody>
-        <% 10.times do %>
-          <tr>
-            <% 7.times do %>
-              <td><%= rand(0..99) %></td>
+      <% %w[cpu_processes memory_processes].each_with_index do |metric, i| %>
+        <tbody class="<%= 'd-none' unless i.zero? %> card-contract-process" id="card_<%= metric %>">
+          <% processes = @metrics.pluck(metric).first %>
+
+          <% unless processes.nil? %>
+            <% processes.each do |process| %>
+              <tr>
+                <% process.each do |cell| %>
+                  <td><%= cell %></td>
+                <% end %>
+              </tr>
             <% end %>
-          </tr>
-        <% end %>
-      </tbody>
+          <% end %>
+        </tbody>
+      <% end %>
     </table>
   </div>
 </div>

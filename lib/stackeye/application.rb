@@ -1,24 +1,34 @@
 # frozen_string_literal: true
 
 require 'sinatra/base'
+require 'sinatra/cookies'
 
-# TODO: change to .cron('0 0 * * *')
-# Stackeye::Schedule.every('1s') do
-#   Stackeye::Metrics::Server.set
-#   Stackeye::Tools::Database.truncate
-# end
+Stackeye::Schedule.cron('*/5 * * * *') do
+  Stackeye::Metrics::Server.set
+  Stackeye::Tools::Database.truncate
+end
 
 class Stackeye::Application < Sinatra::Base
+  helpers Sinatra::Cookies
+
   # TODO: render unsupported if non linux page
 
   get '/' do
-    erb(:index, locals: { data: [1,2,3] })
+    erb(:index)
+  end
+
+  get '/refresh' do
+    if cookies.key?(:refresh)
+      cookies.delete(:refresh)
+    else
+      cookies[:refresh] = true
+    end
+
+    redirect back
   end
 
   get '/server' do
-    # 300.times do
-    #   Stackeye::Metrics::Server.set
-    # end
+    @title = 'Server'
     @metrics = Stackeye::Metrics::Server.new
     erb(:"metrics/server/index")
   end
