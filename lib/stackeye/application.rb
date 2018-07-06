@@ -3,8 +3,11 @@
 require 'sinatra/base'
 require 'sinatra/cookies'
 
-Stackeye::Schedule.cron('*/5 * * * *') do
+Stackeye::Tools::Schedule.cron('*/5 * * * *') do
   Stackeye::Metrics::Server.set
+end
+
+Stackeye::Tools::Schedule.cron('0 0 * * *') do
   Stackeye::Tools::Database.truncate
 end
 
