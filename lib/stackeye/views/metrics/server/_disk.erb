@@ -10,9 +10,13 @@
   </div>
   <div class="card-body">
     <div class="chart chart-appended">
-      <canvas id="devicesChart"
+      <canvas id="disk-chart"
               class="chart-canvas chartjs-render-monitor"
-              data-target="#devicesChartLegend"
+              data-toggle="chart"
+              data-target="disk-chart"
+              data-type="doughnut"
+              data-labels='["Free", "Used"]'
+              data-metrics="[<%= @metrics.pluck('disk_free').first %>, <%= @metrics.pluck('disk_used').first %>]"
               width="506"
               height="482"
               style="display: block; height: 241px; width: 253px;">
