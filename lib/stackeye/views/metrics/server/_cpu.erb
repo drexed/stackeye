@@ -9,23 +9,33 @@
       </div>
       <div class="col-auto">
         <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-          <li class="nav-item" data-toggle="chart" data-type="time" data-target="cpuChart" data-metrics="<%= @metrics.pluck('cpu_load_1m') %>" data-mean="<%= @metrics.mean('cpu_load_1m').round(1) %>" data-timestamps="<%= @metrics.pluck('timestamp') %>">
-            <a class="nav-link active" href="#" data-toggle="tab">
-              1m loadavg
-            </a>
-          </li>
-          <li class="nav-item" data-toggle="chart" data-type="time" data-target="cpuChart" data-metrics="<%= @metrics.pluck('cpu_utilization') %>" data-mean="<%= @metrics.mean('cpu_utilization').round(2) %>" data-timestamps="<%= @metrics.pluck('timestamp') %>">
-            <a class="nav-link" href="#" data-toggle="tab">
-              Utilization
-            </a>
-          </li>
+          <% { cpu_load_1m: "Load 1m", cpu_utilization: "Utilization" }.each_with_index do |(metric, label), i| %>
+            <li class="nav-item"
+                data-toggle="chart"
+                data-type="time"
+                data-target="cpuChart"
+                data-metrics="<%= @metrics.pluck(metric.to_s) %>"
+                data-mean="<%= @metrics.mean(metric.to_s).round(1) %>"
+                data-timestamps="<%= @metrics.pluck('timestamp') %>"
+                data-expand="#card_<%= metric %>"
+                data-contract=".card-contract-cpu">
+              <a class="nav-link <%= :active if i.zero? %>" href="#" data-toggle="tab">
+                <%= label %>
+              </a>
+            </li>
+          <% end %>
         </ul>
       </div>
     </div>
   </div>
   <div class="card-body">
     <div class="chart">
-      <canvas id="cpuChart" class="chart-canvas chartjs-render-monitor" width="1816" height="600" style="display: block; height: 300px; width: 908px;"></canvas>
+      <canvas id="cpuChart"
+              class="chart-canvas chartjs-render-monitor"
+              width="1816"
+              height="600"
+              style="display: block; height: 300px; width: 908px;">
+      </canvas>
     </div>
   </div>
   <ul class="card-footer card-chart-footer">
@@ -39,7 +49,7 @@
 </div>
 
 <% %w[cpu_load_1m cpu_utilization].each_with_index do |metric, i| %>
-  <div class="row <%= :hidden unless i.zero? %>">
+  <div class="row <%= :hidden unless i.zero? %> card-contract-cpu" id="card_<%= metric %>">
     <% %w[mean median mode range].each do |action| %>
       <div class="col-12 col-lg-6 col-xl">
         <div class="card">

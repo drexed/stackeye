@@ -1,3 +1,6 @@
+.hidden {
+  display: none;
+}
 .card-chart-footer {
   list-style: none;
   font-size: 12px;
