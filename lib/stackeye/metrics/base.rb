@@ -35,7 +35,6 @@ module Stackeye
       def pluck(key)
         @pluck ||= {}
         return @pluck[key] if @pluck.key?(key)
-        puts "Plucking"
 
         @pluck[key] = get.collect { |hash| hash[key] }
       end

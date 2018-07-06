@@ -8,12 +8,12 @@
       </div>
       <div class="col-auto">
         <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-          <li class="nav-item" data-toggle="chart" data-target="cpuChart" data-data="<%= cpu_load_1m %>">
+          <li class="nav-item" data-toggle="chart" data-target="cpuChart" data-data="<%= @metrics.pluck('cpu_load_1m') %>">
             <a class="nav-link active" href="#" data-toggle="tab">
               1m loadavg
             </a>
           </li>
-          <li class="nav-item" data-toggle="chart" data-target="cpuChart" data-data="[7,35,12,27,34,17,19,30,28,32,24,39]">
+          <li class="nav-item" data-toggle="chart" data-target="cpuChart" data-data="<%= @metrics.pluck('cpu_utilization') %>">
             <a class="nav-link" href="#" data-toggle="tab">
               Utilization
             </a>
@@ -29,8 +29,6 @@
   </div>
   <div class="card-footer">
     Mode Avg Range
-    <%= @metrics.pluck('cpu_load_1m') %>
-    <%= @metrics.pluck('cpu_load_1m') %>
   </div>
 </div>
 
