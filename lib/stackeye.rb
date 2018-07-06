@@ -7,7 +7,7 @@ require 'stackeye/version'
 end
 
 %w[base server].each do |filename|
-  require "stackeye/monitors/#{filename}"
+  require "stackeye/metrics/#{filename}"
 end
 
 require 'stackeye/application'

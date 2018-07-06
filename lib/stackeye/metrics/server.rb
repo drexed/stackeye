@@ -1,15 +1,36 @@
 # frozen_string_literal: true
 
 module Stackeye
-  module Monitors
-    class Hardware < Stackeye::Monitors::Base
+  module Metrics
+    class Server < Stackeye::Metrics::Base
 
       def generate_data
-        generate_cpu_loadavg
-        generate_cpu_utilization
-        generate_memory_utilization
-        generate_swap_utilization
-        generate_volume_utilization
+        %i[
+          cpu_load_1m
+          cpu_load_5m
+          cpu_load_15m
+          cpu_utilization
+          memory_free
+          memory_total
+          memory_used
+          swap_free
+          swap_used
+          swap_total
+          disk_free
+          disk_used
+          disk_total
+        ].each do |key|
+          @data[key] = rand(1..5)
+        end
+
+        t = Time.now
+        @data[:timestamp] = (t + 60 * rand(1..300)).to_i
+
+        # generate_cpu_loadavg
+        # generate_cpu_utilization
+        # generate_memory_utilization
+        # generate_swap_utilization
+        # generate_volume_utilization
       end
 
       private
