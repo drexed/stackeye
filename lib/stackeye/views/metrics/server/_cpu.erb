@@ -8,12 +8,12 @@
       </div>
       <div class="col-auto">
         <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-          <li class="nav-item" data-toggle="chart" data-target="cpuChart" data-metrics="<%= @metrics.pluck('cpu_load_1m') %>" data-mean="<%= @metrics.mean('cpu_load_1m') %>" data-timestamps="<%= @metrics.pluck('timestamp') %>">
+          <li class="nav-item" data-toggle="chart" data-type="time" data-target="cpuChart" data-metrics="<%= @metrics.pluck('cpu_load_1m') %>" data-mean="<%= @metrics.mean('cpu_load_1m').round(1) %>" data-timestamps="<%= @metrics.pluck('timestamp') %>">
             <a class="nav-link active" href="#" data-toggle="tab">
               1m loadavg
             </a>
           </li>
-          <li class="nav-item" data-toggle="chart" data-target="cpuChart" data-metrics="<%= @metrics.pluck('cpu_utilization') %>" data-mean="<%= @metrics.mean('cpu_load_1m') %>" data-timestamps="<%= @metrics.pluck('timestamp') %>">
+          <li class="nav-item" data-toggle="chart" data-type="time" data-target="cpuChart" data-metrics="<%= @metrics.pluck('cpu_utilization') %>" data-mean="<%= @metrics.mean('cpu_utilization').round(2) %>" data-timestamps="<%= @metrics.pluck('timestamp') %>">
             <a class="nav-link" href="#" data-toggle="tab">
               Utilization
             </a>
