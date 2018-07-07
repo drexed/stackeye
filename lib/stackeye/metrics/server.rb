@@ -59,7 +59,9 @@ module Stackeye
       def generate_volume_utilization
         { disk_free: 4, disk_total: 2, disk_used: 3 }.each do |name, col|
           cmd = "/bin/df --total | tail -n 1 | awk '{ print $#{col} }'"
-          @data[name] = Stackeye::Tools::Cli.execute(cmd).strip.to_f
+          volume = Stackeye::Tools::Cli.execute(cmd).strip.to_f
+
+          @data[name] = volume / 1024.0 / 1024.0
         end
       end
 
