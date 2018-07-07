@@ -3,9 +3,9 @@
 require 'sinatra/base'
 require 'sinatra/cookies'
 
-Stackeye::Tools::Schedule.cron('*/5 * * * *') do
-  Stackeye::Metrics::Server.set
-end
+# Stackeye::Tools::Schedule.cron('*/5 * * * *') do
+#   Stackeye::Metrics::Server.set
+# end
 
 # Stackeye::Tools::Schedule.cron('0 0 * * *') do
 #   Stackeye::Tools::Database.truncate
@@ -13,6 +13,10 @@ end
 
 class Stackeye::Application < Sinatra::Base
   helpers Sinatra::Cookies
+
+  Stackeye::Tools::Schedule.cron('*/5 * * * *') do
+    Stackeye::Metrics::Server.set
+  end
 
   # TODO: render unsupported if non linux page
 
