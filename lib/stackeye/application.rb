@@ -38,8 +38,9 @@ class Stackeye::Application < Sinatra::Base
     erb(:"metrics/server/index")
   end
 
-  def base_url
-    @base_url ||= '/stackeye'
+  def base_path
+    return unless ENV['RAILS_ENV']
+    @base_path ||= '/stackeye'
   end
 
 end
