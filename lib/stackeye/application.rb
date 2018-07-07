@@ -2,9 +2,23 @@
 
 require 'sinatra/base'
 require 'sinatra/cookies'
+require 'logger'
 
 class Stackeye::Application < Sinatra::Base
+  log_path = File.expand_path('log/stackeye.log')
+  request_logger = ::Logger.new(log_path)
+
   helpers Sinatra::Cookies
+
+  configure do
+    use ::Rack::CommonLogger, request_logger
+  end
+
+  before do
+    env['rack.errors'] =  request_logger
+  end
+
+  set :bind, '0.0.0.0'
 
   # TODO: render unsupported if non linux page
 
