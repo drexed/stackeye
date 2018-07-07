@@ -3,6 +3,6 @@ def base_path
   '/stackeye'
 end
 
-def path_to(path)
-  "#{base_path}/path"
+def titleize(str)
+  str.tr('_', ' ').capitalize
 end

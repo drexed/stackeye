@@ -57,8 +57,8 @@
             <div class="row align-items-center">
               <div class="col">
                 <h6 class="card-title text-uppercase text-muted mb-2">
-                  <%= metric.tr('_', ' ') %>
-                  <%= action.tr('_', ' ') %>
+                  <%= titleize(metric) %>
+                  <%= titleize(action) %>
                 </h6>
                 <span class="h2 mb-0">
                   <%= @metrics.send(action, 'cpu_load_1m').round(1) %>
