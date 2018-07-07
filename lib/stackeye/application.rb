@@ -1,26 +1,34 @@
 # frozen_string_literal: true
 
-# TODO: restructure files
+%w[base cookies].each do |filename|
+  require "sinatra/#{filename}"
+end
 
-require 'sinatra/base'
-require 'sinatra/cookies'
+%w[helpers tools metrics].each do |dirname|
+  require_relative "#{dirname}/init"
+end
+
 require 'logger'
 
 class Stackeye::Application < Sinatra::Base
-  log_path = File.expand_path('log/stackeye.log')
-  request_logger = ::Logger.new(log_path)
-
   helpers Sinatra::Cookies
 
-  configure do
-    use ::Rack::CommonLogger, request_logger
-  end
-
-  before do
-    env['rack.errors'] =  request_logger
-  end
-
   set :bind, '0.0.0.0'
+
+  configure :development do
+    enable :logging, :dump_errors, :raise_errors
+  end
+
+  configure :production do
+    set :raise_errors, false
+    set :show_exceptions, false
+
+    path = File.expand_path('log/stackeye.log')
+    file = File.new(path, 'a+')
+    file.sync = true
+
+    use ::Rack::CommonLogger, file
+  end
 
   # TODO: render unsupported if non linux page
 
@@ -42,11 +50,6 @@ class Stackeye::Application < Sinatra::Base
     @title = 'Server'
     @metrics = Stackeye::Metrics::Server.new
     erb(:"metrics/server/index")
-  end
-
-  def base_path
-    return unless ENV['RAILS_ENV']
-    '/stackeye'
   end
 
 end
