@@ -13,11 +13,10 @@ require 'logger'
 class Stackeye::Application < Sinatra::Base
   helpers Sinatra::Cookies
 
+  set :app_file, __FILE__
   set :bind, '0.0.0.0'
 
   configure :development do
-    set :app_file, __FILE__
-
     enable :logging, :dump_errors, :raise_errors
   end
 
