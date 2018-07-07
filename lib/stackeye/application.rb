@@ -14,10 +14,6 @@ require 'sinatra/cookies'
 class Stackeye::Application < Sinatra::Base
   helpers Sinatra::Cookies
 
-  Stackeye::Tools::Schedule.cron('*/5 * * * *') do
-    Stackeye::Metrics::Server.set
-  end
-
   # TODO: render unsupported if non linux page
 
   get '/' do
