@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+# TODO: restructure files
+
 require 'sinatra/base'
 require 'sinatra/cookies'
 require 'logger'
