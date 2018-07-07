@@ -3,7 +3,7 @@
 class Stackeye::Application < Sinatra::Base
 
   get '/' do
-    erb(:index)
+    redirect('/server')
   end
 
   get '/refresh' do

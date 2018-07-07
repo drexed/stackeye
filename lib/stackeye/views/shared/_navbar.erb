@@ -18,7 +18,7 @@
       </h6>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" href="<%= base_path %>/server">
+          <a class="nav-link <%= :active if page?('/server') %>" href="<%= base_path %>/server">
             <i class="fe fe-server"></i> Server
           </a>
         </li>
@@ -50,6 +50,5 @@
         by Drexed
       </h6>
     </div>
-
   </div>
 </nav>

@@ -3,7 +3,7 @@
 class Stackeye::Application < Sinatra::Base
 
   get '/server' do
-    # verify_distro_and_os!
+    redirect('/unsupported') unless verify_distro_and_os?
 
     @title = 'Server'
     @metrics = Stackeye::Metrics::Server.new

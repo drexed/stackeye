@@ -1,6 +1,11 @@
 def base_path
   return unless ENV['RAILS_ENV']
+
   '/stackeye'
+end
+
+def page?(page)
+  request.path == page
 end
 
 def refreshing?
@@ -20,8 +25,6 @@ def verified_os?
   Stackeye::Tools::Cli.execute(cmd).strip.include?('Ubuntu')
 end
 
-def verify_distro_and_os!
-  return if verified_distro? && verified_os?
-
-  redirect('/unsupported')
+def verify_distro_and_os?
+  verified_distro? && verified_os?
 end
