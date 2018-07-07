@@ -25,6 +25,12 @@ def verified_os?
   Stackeye::Tools::Cli.execute(cmd).strip.include?('Ubuntu')
 end
 
-def verify_distro_and_os?
+def verified_distro_and_os?
   verified_distro? && verified_os?
+end
+
+def verify_distro_and_os!
+  return if verified_distro_and_os?
+
+  redirect("#{base_path}/unsupported")
 end
