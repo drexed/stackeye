@@ -16,4 +16,8 @@ class Stackeye::Application < Sinatra::Base
     redirect back
   end
 
+  get '/unsupported' do
+    erb(:unsupported)
+  end
+
 end

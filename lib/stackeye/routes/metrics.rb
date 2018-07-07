@@ -2,11 +2,9 @@
 
 class Stackeye::Application < Sinatra::Base
 
-  # before do
-  #   @flash = session.delete(:flash)
-  # end
-
   get '/server' do
+    # verify_distro_and_os!
+
     @title = 'Server'
     @metrics = Stackeye::Metrics::Server.new
     erb(:"metrics/server/index")

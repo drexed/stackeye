@@ -36,9 +36,9 @@ module Stackeye
         end
 
         HOST_OS.each do |name, _regex|
-          define_method(name) do
+          define_method("#{name}?") do
             klass = new
-            klass.send(name)
+            klass.send("#{name}?")
           end
         end
       end
