@@ -21,12 +21,14 @@ class Stackeye::Application < Sinatra::Base
     enable :logging, :dump_errors, :raise_errors
   end
 
-  configure :production do
+  configure do
     set :raise_errors, false
     set :show_exceptions, false
 
-    path = File.expand_path('log/stackeye.log')
-    file = File.new(path, 'a+')
+    dir = File.expand_path('log')
+    Dir.mkdir(dir) unless File.directory?(dir)
+
+    file = File.new("#{dir}/stackeye.log", 'a+')
     file.sync = true
 
     use ::Rack::CommonLogger, file
