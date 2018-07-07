@@ -4,8 +4,8 @@ def base_path
   '/stackeye'
 end
 
-def page?(page)
-  request.path == page
+def page?(path)
+  request.path == "#{base_path}#{path}"
 end
 
 def refreshing?

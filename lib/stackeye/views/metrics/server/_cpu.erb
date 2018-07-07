@@ -8,7 +8,7 @@
       </div>
       <div class="col-auto">
         <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-          <% { cpu_load_1m: { label: "CPU Load 1m" }, cpu_utilization: { label: "CPU Load 1m", suffix: "%" } }.each_with_index do |(metric, opts), i| %>
+          <% { cpu_load_1m: { label: "CPU load 1m" }, cpu_utilization: { label: "CPU Utilization", suffix: "%" } }.each_with_index do |(metric, opts), i| %>
             <li class="nav-item"
                 data-toggle="chart"
                 data-type="time"
@@ -61,7 +61,7 @@
                   <%= titleize(action) %>
                 </h6>
                 <span class="h2 mb-0">
-                  <%= @metrics.send(action, 'cpu_load_1m').round(1) %>
+                  <%= @metrics.send(action, metric).round(1) %><%= '%' unless i.zero? %>
                 </span>
               </div>
             </div>

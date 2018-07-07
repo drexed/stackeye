@@ -61,7 +61,7 @@
                   <%= titleize(action) %>
                 </h6>
                 <span class="h2 mb-0">
-                  <%= @metrics.send(action, 'cpu_load_1m').round(1) %>
+                  <%= @metrics.send(action, metric).round(1) %>GB
                 </span>
               </div>
             </div>

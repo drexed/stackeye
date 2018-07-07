@@ -3,11 +3,11 @@
     <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="<%= base_path %>">
+    <a class="navbar-brand" href="<%= base_path %>/server">
       <img src="<%= base_path %>/images/stackeye.png" class="navbar-brand-img mx-auto" alt="Stackeye">
     </a>
     <div class="navbar-user d-md-none">
-      <a href="<%= base_path %>" class="navbar-toggler">
+      <a href="<%= base_path %><%= request.path %>" class="navbar-toggler">
         <span class="fe fe-rotate-cw"></span>
       </a>
     </div>
