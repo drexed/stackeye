@@ -8,7 +8,7 @@
       </div>
       <div class="col-auto">
         <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-          <% { cpu_load_1m: "CPU Load 1m", cpu_utilization: "CPU Utilization" }.each_with_index do |(metric, label), i| %>
+          <% { cpu_load_1m: { label: "CPU Load 1m" }, cpu_utilization: { label: "CPU Load 1m", suffix: "%" } }.each_with_index do |(metric, opts), i| %>
             <li class="nav-item"
                 data-toggle="chart"
                 data-type="time"
@@ -16,10 +16,11 @@
                 data-metrics="<%= @metrics.pluck(metric.to_s) %>"
                 data-mean="<%= @metrics.mean(metric.to_s).round(1) %>"
                 data-timestamps="<%= @metrics.pluck('timestamp') %>"
+                data-suffix="<%= opts[:suffix] %>"
                 data-expand="#card_<%= metric %>"
                 data-contract=".card-contract-cpu">
               <a class="nav-link <%= :active if i.zero? %>" href="#" data-toggle="tab">
-                <%= label %>
+                <%= opts[:label] %>
               </a>
             </li>
           <% end %>

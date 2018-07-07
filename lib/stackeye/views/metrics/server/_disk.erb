@@ -17,6 +17,7 @@
               data-type="doughnut"
               data-labels='["Free", "Used"]'
               data-metrics="[<%= @metrics.pluck('disk_free').first %>, <%= @metrics.pluck('disk_used').first %>]"
+              data-suffix="GB"
               width="506"
               height="482"
               style="display: block; height: 241px; width: 253px;">

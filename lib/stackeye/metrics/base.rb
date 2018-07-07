@@ -4,6 +4,9 @@ module Stackeye
   module Metrics
     class Base
 
+      MB ||= 1024.0
+      GB ||= MB ** 2
+
       def initialize
         @data = { timestamp: Time.now.to_i }
       end

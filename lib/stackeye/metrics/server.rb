@@ -45,14 +45,18 @@ module Stackeye
       def generate_memory_utilization
         { memory_free: 4, memory_total: 2, memory_used: 3 }.each do |name, col|
           cmd = "/usr/bin/free | head -n 2 | tail -n 1 | awk '{ print $#{col} }'"
-          @data[name] = Stackeye::Tools::Cli.execute(cmd).strip.to_f
+          memory = Stackeye::Tools::Cli.execute(cmd).strip.to_f
+
+          @data[name] = (memory / GB).round(2)
         end
       end
 
       def generate_swap_utilization
         { swap_free: 4, swap_total: 2, swap_used: 3 }.each do |name, col|
           cmd = "/usr/bin/free | tail -n 1 | awk '{ print $#{col} }'"
-          @data[name] = Stackeye::Tools::Cli.execute(cmd).strip.to_f
+          swap = Stackeye::Tools::Cli.execute(cmd).strip.to_f
+
+          @data[name] = (swap / GB).round(2)
         end
       end
 
@@ -61,7 +65,7 @@ module Stackeye
           cmd = "/bin/df --total | tail -n 1 | awk '{ print $#{col} }'"
           volume = Stackeye::Tools::Cli.execute(cmd).strip.to_f
 
-          @data[name] = (volume / 1024.0 / 1024.0).round(2)
+          @data[name] = (volume / GB).round(2)
         end
       end
 
