@@ -29,7 +29,7 @@ module Stackeye
 
       def generate_process_utilization
         { cpu: 'pcpu', memory: 'pmem' }.each do |label, sort|
-          cmd = "ps -Ao user,uid,comm,pid,pcpu,pmem,tty --sort=-#{sort} | head -n 11"
+          cmd = "ps -Ao user,uid,comm,pid,pcpu,pmem --sort=-#{sort} | head -n 11"
           processes = Stackeye::Tools::Cli.execute(cmd)
           key = "#{label}_processes".to_sym
 
