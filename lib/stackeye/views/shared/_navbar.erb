@@ -18,10 +18,20 @@
       </h6>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link <%= :active if page?('/server') %>" href="<%= base_path %>/server">
+          <a class="nav-link <%= :active if page?('/server') %>"
+             href="<%= base_path %>/server">
             <i class="fe fe-server"></i> Server
           </a>
         </li>
+        <% Stackeye.configuration.metrics.each do |metric| %>
+          <li class="nav-item">
+            <a class='nav-link <%= :active if page?("/#{metric}") %>'
+               href="<%= base_path %>/<%= metric %>">
+              <i class="fe fe-<%= metric_icon_decorator(metric) %>"></i>
+              <%= metric_name_decorator(metric) %>
+            </a>
+          </li>
+        <% end %>
       </ul>
       <hr class="my-3">
       <h6 class="navbar-heading text-muted">

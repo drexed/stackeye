@@ -20,10 +20,7 @@ class Stackeye::Application < Sinatra::Base
     enable :logging, :dump_errors, :raise_errors
   end
 
-  configure do
-    set :raise_errors, false
-    set :show_exceptions, false
-
+  configure :production do
     dir = File.expand_path('log')
     Dir.mkdir(dir) unless File.directory?(dir)
     file = File.new("#{dir}/stackeye.log", 'a+')

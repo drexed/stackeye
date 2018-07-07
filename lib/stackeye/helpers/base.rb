@@ -6,6 +6,24 @@ def base_path
   '/stackeye'
 end
 
+def metric_icon_decorator(metric)
+  case metric
+  when 'server' then 'server'
+  else 'database'
+  end
+end
+
+def metric_name_decorator(metric)
+  case metric
+  when 'mysql' then 'MySQL'
+  else titleize(metric)
+  end
+end
+
+def modulize(str)
+  str.tr('_-', ' ').split(' ').map(&:capitalize).join('')
+end
+
 def page?(path)
   request.path == "#{base_path}#{path}"
 end
