@@ -27,7 +27,6 @@ class Stackeye::Application < Sinatra::Base
 
     dir = File.expand_path('log')
     Dir.mkdir(dir) unless File.directory?(dir)
-
     file = File.new("#{dir}/stackeye.log", 'a+')
     file.sync = true
 
