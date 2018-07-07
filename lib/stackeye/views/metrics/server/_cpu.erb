@@ -8,7 +8,7 @@
       </div>
       <div class="col-auto">
         <ul class="nav nav-tabs nav-tabs-sm card-header-tabs">
-          <% { cpu_load_1m: { label: "CPU load 1m" }, cpu_utilization: { label: "CPU Utilization", suffix: "%" } }.each_with_index do |(metric, opts), i| %>
+          <% { cpu_load_1m: { label: "CPU load 1m" }, cpu_utilization: { label: "CPU utilization", suffix: "%" } }.each_with_index do |(metric, opts), i| %>
             <li class="nav-item"
                 data-toggle="chart"
                 data-type="time"
