@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def base_path
   return unless ENV['RAILS_ENV']
 

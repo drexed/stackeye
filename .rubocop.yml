@@ -1,5 +1,11 @@
 AllCops:
+  DisplayCopNames: true
+  DisplayStyleGuide: true
   TargetRubyVersion: 2.5
+  Exclude:
+    - 'spec/**/**/*'
+LineLength:
+  Max: 100
 Layout/EmptyLinesAroundClassBody:
   Enabled: false
 Style/ClassAndModuleChildren:

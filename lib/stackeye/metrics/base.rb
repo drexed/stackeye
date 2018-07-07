@@ -5,7 +5,7 @@ module Stackeye
     class Base
 
       MB ||= 1024.0
-      GB ||= MB ** 2
+      GB ||= MB**2
 
       def initialize
         @data = { timestamp: Time.now.to_i }
@@ -52,6 +52,7 @@ module Stackeye
         @mean[key] = values.sum / values.length.to_f
       end
 
+      # rubocop:disable Metrics/AbcSize
       def median(key)
         @median ||= {}
         return @median[key] if @median.key?(key)
@@ -66,6 +67,7 @@ module Stackeye
 
         @median[key] = (values_sorted[values_halved - 1.0] + values_halved_sorted) / 2.0
       end
+      # rubocop:enable Metrics/AbcSize
 
       def mode(key)
         @mode ||= {}

@@ -14,13 +14,10 @@ Gem::Specification.new do |spec|
   spec.homepage = 'https://github.com/drexed/stackeye'
   spec.license = 'MIT'
 
-  # rubocop:disable Metrics/LineLength
-  spec.files = `git ls-files -z`.split("\x0")
-                                .reject { |f| f.match(%r{^(test|spec|features)/}) }
+  spec.files = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir = 'exe'
   spec.executables = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
-  # rubocop:enable Metrics/LineLength
 
   spec.add_runtime_dependency 'sinatra'
   spec.add_runtime_dependency 'sinatra-contrib'
