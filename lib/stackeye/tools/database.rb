@@ -24,7 +24,6 @@ module Stackeye
       end
 
       def set(hash)
-        # TODO: remove last line if over limit
         Dir.mkdir(DATA_PATH) unless File.directory?(DATA_PATH)
 
         File.open(@filepath, 'a+') do |outfile|

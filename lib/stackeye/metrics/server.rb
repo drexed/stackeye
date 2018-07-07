@@ -61,7 +61,7 @@ module Stackeye
           cmd = "/bin/df --total | tail -n 1 | awk '{ print $#{col} }'"
           volume = Stackeye::Tools::Cli.execute(cmd).strip.to_f
 
-          @data[name] = volume / 1024.0 / 1024.0
+          @data[name] = (volume / 1024.0 / 1024.0).round(2)
         end
       end
 
