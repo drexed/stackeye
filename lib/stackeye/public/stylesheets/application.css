@@ -2,3 +2,12 @@
   Use this file to add custom styles.
   Please do not override any of the other files
 */
+
+.unsupported {
+  margin: 100px 0;
+  text-align: center;
+}
+.unsupported img {
+  max-width: 180px;
+  margin-bottom: 60px;
+}
