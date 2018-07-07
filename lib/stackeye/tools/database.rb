@@ -7,7 +7,7 @@ module Stackeye
     class Database
 
       # TODO: make it from the config folder
-      DATA_PATH ||= '/var/stackeye' # File.expand_path('data')
+      DATA_PATH ||= File.expand_path('data') # '/var/stackeye' # File.expand_path('data')
       DATA_ROWS ||= 43_200
 
       def initialize(filepath)
