@@ -40,7 +40,7 @@ class Stackeye::Application < Sinatra::Base
 
   def base_path
     return unless ENV['RAILS_ENV']
-    @base_path ||= '/stackeye'
+    '/stackeye'
   end
 
 end
