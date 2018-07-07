@@ -7,6 +7,7 @@ class Stackeye::Application < Sinatra::Base
 
     @title = 'Server'
     @metrics = Stackeye::Metrics::Server.new
+
     erb(:"metrics/server/index")
   end
 

@@ -3,6 +3,10 @@ def base_path
   '/stackeye'
 end
 
+def refreshing?
+  cookies[:refresh] == '1'
+end
+
 def titleize(str)
   str.tr('_', ' ').capitalize
 end

@@ -32,6 +32,4 @@ class Stackeye::Application < Sinatra::Base
     use ::Rack::CommonLogger, file
   end
 
-  # TODO: render unsupported if non linux page
-
 end

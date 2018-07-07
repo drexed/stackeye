@@ -7,13 +7,9 @@ class Stackeye::Application < Sinatra::Base
   end
 
   get '/refresh' do
-    if cookies.key?(:refresh)
-      cookies.delete(:refresh)
-    else
-      cookies[:refresh] = true
-    end
+    cookies[:refresh] = refreshing? ? '0' : '1'
 
-    redirect back
+    redirect(back)
   end
 
   get '/unsupported' do
