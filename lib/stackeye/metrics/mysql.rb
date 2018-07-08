@@ -24,8 +24,9 @@ module Stackeye
         stats.each do |stat|
           key, val = stat.split(': ')
           key = key.downcase.tr(' ', '_')
+          key = 'velocity' if 'queries_per_second_avg'
 
-          @data[key] = val.to_f
+          @data[key] = val.to_f.round(2)
         end
       end
 
