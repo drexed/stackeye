@@ -5,8 +5,8 @@ module Stackeye
     class Mysql < Stackeye::Metrics::Base
 
       CREDENTIALS ||= {
-        host: 'localhost',
         user: 'root',
+        host: 'localhost',
         password: nil
       }.freeze
 
