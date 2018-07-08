@@ -1,14 +1,17 @@
 # frozen_string_literal: true
 
+# TODO: add filepath config
+
 module Stackeye
   class Configuration
 
     METRICS ||= %w[server mysql].freeze
 
-    attr_accessor :metrics
+    attr_accessor :credentials, :metrics
 
     def initialize
       @metrics = METRICS
+      @credentials = {}
     end
 
   end
