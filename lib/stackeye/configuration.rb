@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-# TODO: add filepath config
-
 module Stackeye
   class Configuration
 
