@@ -2,15 +2,6 @@
 
 class Stackeye::Application < Sinatra::Base
 
-  get '/server' do
-    verify_distro_and_os!
-
-    @metrics = Stackeye::Metrics::Server.new
-    @title = 'Server'
-
-    erb(:'metrics/server/index')
-  end
-
   Stackeye.configuration.metrics.each do |metric|
     get "/#{metric}" do
       # verify_distro_and_os!

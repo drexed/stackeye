@@ -3,7 +3,9 @@
 class Stackeye::Application < Sinatra::Base
 
   get '/' do
-    redirect("#{base_path}/server")
+    metric = Stackeye.configuration.metrics.first
+
+    redirect("#{base_path}/#{metric}")
   end
 
   get '/refresh' do

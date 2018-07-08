@@ -3,10 +3,12 @@
 module Stackeye
   class Configuration
 
+    METRICS ||= %w[server mysql].freeze
+
     attr_accessor :metrics
 
     def initialize
-      @metrics = %w[mysql]
+      @metrics = METRICS
     end
 
   end

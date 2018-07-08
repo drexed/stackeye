@@ -7,7 +7,10 @@ module Stackeye
       def initialize; end
 
       def set
-        Stackeye::Metrics::Server.set
+        Stackeye.configuration.metrics.each do |metric|
+          klass = "Stackeye::Metrics::#{modulize(metric)}"
+          Module.const_get(klass).set
+        end
       end
 
       class << self

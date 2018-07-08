@@ -17,12 +17,6 @@
         Metrics
       </h6>
       <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link <%= :active if page?('/server') %>"
-             href="<%= base_path %>/server">
-            <i class="fe fe-server"></i> Server
-          </a>
-        </li>
         <% Stackeye.configuration.metrics.each do |metric| %>
           <li class="nav-item">
             <a class='nav-link <%= :active if page?("/#{metric}") %>'
