@@ -6,7 +6,7 @@ module Stackeye
     MAX_DATA ||= 288
     METRICS ||= %w[server mysql].freeze
 
-    attr_accessor :credentials, :metrics
+    attr_accessor :credentials, :max_data, :metrics
 
     def initialize
       @max_data = MAX_DATA

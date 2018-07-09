@@ -15,15 +15,21 @@ This project will continue to grow overtime but I would **love some help
 from the community** to really make it blossom into a great project. The
 following is a list of future must/nice to have:
 
-* Alerts
-  * Email
-  * SMS
 * Metrics
   * Ruby
   * Rails
   * SQLite
   * PostgreSQL
   * Redis
+* Alerts
+  * Email
+  * SMS
+* OS
+  * Windows
+  * Mac OS
+  * Unix
+
+![Web UI](https://github.com/drexed/stackeye/raw/master/examples/web-ui.png)
 
 ## Installation
 
