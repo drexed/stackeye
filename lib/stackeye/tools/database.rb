@@ -17,8 +17,10 @@ module Stackeye
         json = []
         return json unless File.file?(@filepath)
 
-        File.foreach(@filepath) do |line|
+        File.foreach(@filepath).with_index do |line, i|
           json << JSON.parse(line)
+
+          break if i == DATA_ROWS
         end
         json
       end
