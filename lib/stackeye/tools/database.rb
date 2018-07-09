@@ -6,8 +6,8 @@ module Stackeye
   module Tools
     class Database
 
+      MAX_DATA ||= Stackeye.configuration.max_data
       DATA_PATH ||= File.expand_path('stackeye')
-      DATA_ROWS ||= 288
 
       def initialize(filepath)
         @filepath = File.expand_path(filepath)
@@ -20,7 +20,7 @@ module Stackeye
         File.foreach(@filepath).with_index do |line, i|
           json << JSON.parse(line)
 
-          break if i == DATA_ROWS
+          break if i == MAX_DATA
         end
         json
       end
@@ -38,8 +38,8 @@ module Stackeye
           next if filename.start_with?('.')
 
           file = "#{DATA_PATH}/#{filename}"
-          temp = IO.readlines(file)[-DATA_ROWS..-1]
-          next if temp.nil? || (temp.length < DATA_ROWS)
+          temp = IO.readlines(file)[-MAX_DATA..-1]
+          next if temp.nil? || (temp.length < MAX_DATA)
 
           File.open(file, 'w') do |outfile|
             temp.each { |line| outfile.puts line }

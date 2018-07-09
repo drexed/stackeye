@@ -3,11 +3,13 @@
 module Stackeye
   class Configuration
 
+    MAX_DATA ||= 288
     METRICS ||= %w[server mysql].freeze
 
     attr_accessor :credentials, :metrics
 
     def initialize
+      @max_data = MAX_DATA
       @metrics = METRICS
       @credentials = {}
     end
