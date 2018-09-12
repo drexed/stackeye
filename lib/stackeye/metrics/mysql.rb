@@ -16,6 +16,7 @@ module Stackeye
 
       private
 
+      # rubocop:disable Metrics/AbcSize
       def generate_stats
         cmd = "mysqladmin -u#{user} -h#{host} -p#{password} status"
         lines = Stackeye::Tools::Cli.execute(cmd).split("\n")
@@ -29,6 +30,7 @@ module Stackeye
           @data[key] = val.to_f.round(2)
         end
       end
+      # rubocop:enable Metrics/AbcSize
 
       %i[host password user].each do |name|
         define_method(name) do

@@ -8,6 +8,8 @@ LineLength:
   Max: 100
 Layout/EmptyLinesAroundClassBody:
   Enabled: false
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
 Style/Dir:

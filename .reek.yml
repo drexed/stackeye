@@ -1,5 +1,9 @@
 ---
 detectors:
+  Attribute:
+    enabled: false
+  ControlParameter:
+    enabled: false
   DuplicateMethodCall:
     enabled: false
   InstanceVariableAssumption:
