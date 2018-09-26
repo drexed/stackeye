@@ -8,6 +8,7 @@
 /tmp/
 /log/
 /stackeye/
+/.irbrc_history
 
 # rspec failure tracking
 .rspec_status

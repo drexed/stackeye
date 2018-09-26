@@ -10,6 +10,8 @@ Layout/EmptyLinesAroundClassBody:
   Enabled: false
 Layout/EmptyLinesAroundModuleBody:
   Enabled: false
+Lint/RescueException:
+  Enabled: false
 Style/ClassAndModuleChildren:
   Enabled: false
 Style/Dir:
